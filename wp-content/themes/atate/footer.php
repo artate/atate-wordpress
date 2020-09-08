@@ -3,8 +3,8 @@
 			<div class="row">
 				<div class="col-12">
 					<p class="mr-2">ATATE © <?php echo date('Y'); ?> </p> |
-					<p class="ml-2"><a href="https://www.linkedin.com/in/andrew-tate-14100b62/"><i class="fa fa-linkedin"></i></a></p>
-					<p class="ml-2"><a href="https://github.com/artate"><i class="fa fa-github"></i></a></p>
+					<p class="ml-2"><a href="https://www.linkedin.com/in/andrew-tate-14100b62/" target="_blank"><i class="fa fa-linkedin"></i></a></p>
+					<p class="ml-2"><a href="https://github.com/artate" target="_blank"><i class="fa fa-github"></i></a></p>
 				</div>
 			</div>
 		</div>
