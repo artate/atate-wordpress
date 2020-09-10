@@ -4,11 +4,11 @@
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
-		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/build/img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/build/img/favicon.ico" type="image/x-icon">
 
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/font-awesome-4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/build/css/main.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/build/css/font-awesome-4.6.1/css/font-awesome.min.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet">
 
