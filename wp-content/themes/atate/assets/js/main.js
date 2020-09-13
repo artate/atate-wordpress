@@ -7,10 +7,10 @@ function scrollNav() {
 
     if (scroll >= 1) {
         $("header").addClass("white");
-        $(".logo").attr("src","/wp-content/themes/atate/assets/img/atate-logo-black.png");
+        $(".logo").attr("src","/wp-content/themes/atate/assets/build/img/atate-logo-black.png");
     } else {
         $("header").removeClass("white");
-        $(".logo").attr("src","/wp-content/themes/atate/assets/img/atate-logo-clear.png");
+        $(".logo").attr("src","/wp-content/themes/atate/assets/build/img/atate-logo-clear.png");
     }
 }
 
