@@ -12,6 +12,10 @@
                     <div class="row">
                         <div class="col-12">
                             <h1 class="mb-4">' . $title . '</h1>';
+                            if ($cta1 || $cta) {
+                                echo '<div class="intro-block__inner__content">';
+                            }
+
                             if ($cta1) {
                                 if($cta1['at_ib_cta1_link']) {
                                     echo '<a href="' . $cta1['at_ib_cta1_link'] . '" class="cta">';
@@ -20,7 +24,7 @@
                                 }
 
                                 if ($cta1['at_ib_cta1_title']) {
-                                    echo $cta1['at_ib_cta1_title'];
+                                    echo '<span>' . $cta1['at_ib_cta1_title'] . '</span>';
                                 }
 
                                 echo '</a>';
@@ -34,10 +38,13 @@
                                 }
 
                                 if ($cta2['at_ib_cta2_title']) {
-                                    echo $cta2['at_ib_cta2_title'];
+                                    echo '<span>' . $cta2['at_ib_cta2_title'] . '</span>';
                                 }
 
                             echo '</a>';
+                            }
+                            if ($cta1 || $cta) {
+                                echo '</div>';
                             }
 
                         echo '</div>
@@ -154,6 +161,42 @@
         </div>
         <div class="container">
             <hr>
+        </div>';
+    }
+
+    function timelineBlock() {
+        if(get_sub_field('at_tlb_anchor') !='' ) {
+            $anchor = get_sub_field('at_tlb_anchor');
+        } else {
+            $anchor = "timeline";
+        }
+
+        echo '<div class="timeline-block" id="' . $anchor . '">
+                <div class="container">';
+        if (get_sub_field('at_timeline_block_title') != ''){
+            echo '<h2 class="text-center mb-5">' . get_sub_field('at_timeline_block_title') . '</h2>';
+        }
+
+        if (have_rows('at_tlb')) :
+        $itemSide = '';
+            echo '<div class="timeline-container">';
+                while (have_rows('at_tlb')) : the_row();
+                $itemSide = get_sub_field('at_tlb_side');
+                    echo'
+                    <div class="timeline-item">
+                          <div class="timeline-dot"></div>
+                                <div class="timeline-content js--fadeIn' . $itemSide . '">
+                                    <div class="date">' . get_sub_field('at_tlb_date') . '</div>
+                                    <h3>' . get_sub_field('at_tlb_title') . '</h3>
+                                    <p class="timeline-location">' . get_sub_field('at_tlb_location') . '</p>
+                                    ' . get_sub_field('at_tlb_text') . '
+                                    <a class="bnt-more" href="' . get_sub_field('at_tlb_link') . '">' . get_sub_field('at_tlb_link_text') . '</a>
+                                </div>
+                          </div>';
+                endwhile;
+            echo '</div>';
+        endif;
+        echo '</div>
         </div>';
     }
 ?>

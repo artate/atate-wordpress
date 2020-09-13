@@ -1,0 +1,23 @@
+.mobile-hide {
+  display: block;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.mobile-show {
+  display: none;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
+}
+
+.pos-unset {
+  position: unset;
+}
+
+.grey-bg {
+  background-color: #eeeeee;
+}

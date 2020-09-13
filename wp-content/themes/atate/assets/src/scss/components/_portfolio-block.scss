@@ -1,0 +1,38 @@
+.portfolio-block {
+  padding-top: 30px;
+
+  .project {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    img {
+      width: 50%;
+      max-width: 50%;
+      flex: 0 0 50%;
+      height: 0%;
+      margin-right: 2%;
+
+      @include media-breakpoint-down(md){
+        max-width: 100%;
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    .title {
+      width: 48%;
+      max-width: 48%;
+      flex: 0 0 48%;
+
+      @include media-breakpoint-down(md){
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        text-align: center;
+      }
+
+    }
+  }
+}
