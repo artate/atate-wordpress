@@ -46,7 +46,7 @@
           @include media-breakpoint-up(lg){
 
             &:hover {
-              border-bottom: 4px solid #0077A8;
+              border-bottom: 4px solid $blue;
               text-decoration: none;
               -webkit-transition: 200ms ease-out;
               -ms-transition: 200ms ease-out;

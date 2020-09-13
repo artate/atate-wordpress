@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/build/css/font-awesome-4.6.1/css/font-awesome.min.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Work+Sans&display=swap" rel="stylesheet">
+
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +28,7 @@
 	            <div class="container">
 	                <div class="row">
 	                    <div class="col-6">
-	                        <a href="/"><img class="logo" src="/wp-content/themes/atate/assets/img/atate-logo-clear.png" alt="<?php bloginfo('name'); ?>" /></a>
+	                        <a href="/"><img class="logo" src="./wp-content/themes/atate/assets/build/img/atate-logo-clear.png" alt="<?php bloginfo('name'); ?>" /></a>
 	                    </div>
 	                    <div class="col-6">
 	                        <div class="menu-ros" onclick="hideNav()"></div>

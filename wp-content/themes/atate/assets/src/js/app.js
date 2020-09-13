@@ -7,10 +7,10 @@ function scrollNav() {
 
     if (scroll >= 1) {
         $("header").addClass("white");
-        $(".logo").attr("src","/wp-content/themes/atate/assets/img/atate-logo-black.png");
+        $(".logo").attr("src","./wp-content/themes/atate/assets/build/img/atate-logo-black.png");
     } else {
         $("header").removeClass("white");
-        $(".logo").attr("src","/wp-content/themes/atate/assets/img/atate-logo-clear.png");
+        $(".logo").attr("src","./wp-content/themes/atate/assets/build/img/atate-logo-clear.png");
     }
 }
 
@@ -56,6 +56,57 @@ $(document).ready(function(){
 
 
 
+$(function(){
+
+    window.sr = ScrollReveal();
+
+    if ($(window).width() < 768) {
+
+        if ($('.timeline-content').hasClass('js--fadeInLeft')) {
+            $('.timeline-content').removeClass('js--fadeInLeft').addClass('js--fadeInRight');
+        }
+
+        sr.reveal('.js--fadeInRight', {
+            origin: 'right',
+            distance: '300px',
+            easing: 'ease-in-out',
+            duration: 800,
+        });
+
+    } else {
+
+        sr.reveal('.js--fadeInLeft', {
+            origin: 'left',
+            distance: '300px',
+            easing: 'ease-in-out',
+            duration: 800,
+        });
+
+        sr.reveal('.js--fadeInRight', {
+            origin: 'right',
+            distance: '300px',
+            easing: 'ease-in-out',
+            duration: 800,
+        });
+
+    }
+
+    sr.reveal('.js--fadeInLeft', {
+        origin: 'left',
+        distance: '300px',
+        easing: 'ease-in-out',
+        duration: 800,
+    });
+
+    sr.reveal('.js--fadeInRight', {
+        origin: 'right',
+        distance: '300px',
+        easing: 'ease-in-out',
+        duration: 800,
+    });
+
+
+});
 
 
 

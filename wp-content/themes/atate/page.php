@@ -16,21 +16,28 @@
 
         if( get_row_layout() == 'at_about_block' ):
 
-		aboutBlock($row);
+		    aboutBlock($row);
 
 		 endif;
 
         if( get_row_layout() == 'at_contact_block' ):
 
-        contactUsFormBlock($row);
+            contactUsFormBlock($row);
 
         endif;
 
       	if( get_row_layout() == 'at_portfolio_block' ):
 
-      	portfolioBlock($row);
+      	    portfolioBlock($row);
 
 		 endif;
+
+
+         if( get_row_layout() == 'at_timeline_block' ):
+
+               	timelineBlock($row);
+
+         endif;
 
          endwhile;
 
