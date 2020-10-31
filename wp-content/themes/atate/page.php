@@ -3,47 +3,11 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <?php
-  if( have_rows('at_components') ):
+  the_content(); 
+?>
 
-      while (have_rows('at_components')) : the_row();
-      $row = get_row();
-
-        if( get_row_layout() == 'at_intro_block' ):
-
-        	introductionBlock($row);
-
-       	endif;
-
-        if( get_row_layout() == 'at_about_block' ):
-
-		    aboutBlock($row);
-
-		 endif;
-
-        if( get_row_layout() == 'at_contact_block' ):
-
-            contactUsFormBlock($row);
-
-        endif;
-
-      	if( get_row_layout() == 'at_portfolio_block' ):
-
-      	    portfolioBlock($row);
-
-		 endif;
-
-
-         if( get_row_layout() == 'at_timeline_block' ):
-
-               	timelineBlock($row);
-
-         endif;
-
-         endwhile;
-
-  else :
-
-  endif;
+<?php
+    callComponents();
   ?>
 
 <?php endwhile; else: ?>

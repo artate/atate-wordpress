@@ -199,4 +199,116 @@
         echo '</div>
         </div>';
     }
+
+    function callComponents() {
+        if( have_rows('at_components') ):
+
+            while (have_rows('at_components')) : the_row();
+            $row = get_row();
+      
+              if( get_row_layout() == 'at_intro_block' ):
+      
+                  introductionBlock($row);
+      
+                 endif;
+      
+              if( get_row_layout() == 'at_about_block' ):
+      
+                  aboutBlock($row);
+      
+               endif;
+      
+              if( get_row_layout() == 'at_contact_block' ):
+      
+                  contactUsFormBlock($row);
+      
+              endif;
+      
+                if( get_row_layout() == 'at_portfolio_block' ):
+      
+                    portfolioBlock($row);
+      
+               endif;
+      
+      
+               if( get_row_layout() == 'at_timeline_block' ):
+      
+                         timelineBlock($row);
+      
+               endif;
+      
+               endwhile;
+      
+        else :
+      
+        endif;
+    }
+
+    add_action('acf/init', 'my_acf_init');
+
+    function my_acf_init() {
+	if( function_exists('acf_register_block') ) {
+		
+		acf_register_block(array(
+			'name'				=> 'intro',
+			'title'				=> __('Intro'),
+			'description'		=> __('Intro block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-home',
+			'keywords'			=> array( 'intro' ),
+        ));
+        
+        acf_register_block(array(
+			'name'				=> 'about',
+			'title'				=> __('About'),
+			'description'		=> __('About block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'analytics',
+			'keywords'			=> array( 'about' ),
+        ));
+        
+        acf_register_block(array(
+			'name'				=> 'contact',
+			'title'				=> __('Contact'),
+			'description'		=> __('Contact block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'email',
+			'keywords'			=> array( 'contact' ),
+        ));
+        
+        acf_register_block(array(
+			'name'				=> 'portfolio',
+			'title'				=> __('Portfolio '),
+			'description'		=> __('Portfolio block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'laptop',
+			'keywords'			=> array( 'portfolio', 'quote' ),
+        ));
+        
+        acf_register_block(array(
+			'name'				=> 'timeline',
+			'title'				=> __('Timeline '),
+			'description'		=> __('Timeline block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'timeline', 'quote' ),
+		));
+	}
+    } 
+
+    function my_acf_block_render_callback( $block ) {
+	
+        // convert name ("acf/testimonial") into path friendly slug ("testimonial")
+        $slug = str_replace('acf/', '', $block['name']);
+        
+        // include a template part from within the "template-parts/block" folder
+        if( file_exists( get_theme_file_path("/template-parts/blocks/{$slug}-block.php") ) ) {
+            include( get_theme_file_path("/template-parts/blocks/{$slug}-block.php") );
+        }
+    }
 ?>
