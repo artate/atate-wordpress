@@ -8,8 +8,8 @@
 
      $backgroundImage= get_field('atgb_ib_background_image');
      $title = get_field('atgb_ib_title');
-     $cta1 = get_field('atgb_ib_cta_one');
-     $cta2 = get_field('atgb_ib_cta_two');
+     $cta1 = get_field('atgb_ib_cta_1');
+     $cta2 = get_field('atgb_ib_cta_2');
 
      echo '
         <div class="intro-block" style="background-image: url(\'' . $backgroundImage . '\');">
