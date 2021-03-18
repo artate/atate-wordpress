@@ -200,8 +200,76 @@
         </div>';
     }
 
+    function projectIntroBlock() {
+        echo '<div class="pib-container"'; 
+            if (get_sub_field('at_pib_background_colour') !== "") {
+                echo ' style="background-color:' . get_sub_field('at_pib_background_colour') . ';" ';
+                }
+                echo '>
+                <div class="container">
+                    <h1>' . get_sub_field('at_pib_title') . '</h1>
+                    <div class="pib-container__content">
+                        ' . get_sub_field('at_pib_intro') . '
+                    </div>
+                    <div class="pib-container__project-info"> 
+                        <div class="row w-100">
+                        ';
+                            if (have_rows('at_pib_project_info')):
+                                while (have_rows('at_pib_project_info')) : the_row();
+                                    echo'<div class="col-4 col-sm-3">
+                                    <div class="project-info-title">' . get_sub_field('at_pib_pi_title') . '</div>
+                                    <div class="project-info-text">' . get_sub_field('at_pib_pi_text') . '</div>
+                                    </div>';
+                                    
+                                endwhile;
+                            endif;
+                        echo '
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ';
+    }
+
+    function projectImage() {
+        $piImage = '<img src="' . get_sub_field('at_pi_image') . '">';        
+        $imagePosition = get_sub_field('at_pi_image_position');
+        $piTitle = '<div class="pi-title">'.get_sub_field('at_pi_title') . '</div>';
+        $piText = '<div class="pi-text">'. get_sub_field('at_pi_text') . '</div>';
+        $leftSide = "";
+        $rightSide = "";
+        if (get_sub_field('at_pi_title') !== "" && get_sub_field('at_pi_title') !== "") {
+            if ($imagePosition == "top" || $imagePosition == "bottom"){
+                $colSize = "col-12";
+            } else {
+                $colSize = "col-12 col-md-6";
+            }
+        } else {
+            $colSize = "col-12";
+        }
+
+        if ($imagePosition == "top" || $imagePosition == "left") {
+            $leftSide = '<div class="' . $colSize . '"> ' . $piImage . '</div>';
+            $rightSide = '<div class=" ' . $colSize . ' project-image__content">' . $piTitle . $piText . '</div>';
+        }
+
+        if ($imagePosition == "bottom" || $imagePosition == "right") {
+            $leftSide = '<div class=" ' . $colSize . ' project-image__content">' . $piTitle . $piText . '</div>';
+            $rightSide = '<div class="' . $colSize . '"> ' . $piImage . '</div>';
+        }
+
+        echo '<div class="container">
+                <div class="project-image">
+                    <div class="row">
+                        ' . $leftSide . $rightSide . '
+                    </div>
+                </div>
+              </div>';
+    }
+
     function callComponents() {
-        if( have_rows('at_components') ):
+
+        if(have_rows('at_components') ):
 
             while (have_rows('at_components')) : the_row();
             $row = get_row();
@@ -233,9 +301,21 @@
       
                if( get_row_layout() == 'at_timeline_block' ):
       
-                         timelineBlock($row);
+                    timelineBlock($row);
       
                endif;
+
+               if( get_row_layout() == 'at_project_intro_block' ):
+      
+                    projectIntroBlock($row);
+
+                endif;
+
+                if( get_row_layout() == 'at_project_image' ):
+      
+                    projectImage($row);
+    
+                endif;
       
                endwhile;
       

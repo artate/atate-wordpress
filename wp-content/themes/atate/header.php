@@ -38,7 +38,7 @@
 	            <div class="container">
 	                <div class="row">
 	                    <div class="col-6">
-	                        <a href="/"><img class="logo" src="./wp-content/themes/atate/assets/build/img/atate-logo-clear.png" alt="<?php bloginfo('name'); ?>" /></a>
+	                        <a href="/"><img class="logo" src="/wp-content/themes/atate/assets/build/img/atate-logo-clear.png" alt="<?php bloginfo('name'); ?>" /></a>
 	                    </div>
 	                    <div class="col-6">
 	                        <div class="menu-ros" onclick="hideNav()"></div>
