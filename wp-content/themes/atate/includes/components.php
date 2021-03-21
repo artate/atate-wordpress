@@ -109,10 +109,8 @@
             echo '
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <hr>
         </div>';
+        checkBottomHr();
      }
 
     function contactUsFormBlock() {
@@ -139,7 +137,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center mb-4">' .  get_sub_field('at_pb_title') . '</h2>
+                    <h2 class="text-center mb-5">' .  get_sub_field('at_pb_title') . '</h2>
                 </div>';
                 if (have_rows('at_pb_projects')) :
                     while (have_rows('at_pb_projects')) : the_row();
@@ -158,10 +156,8 @@
                 echo '
             </div>
         </div>
-        </div>
-        <div class="container">
-            <hr>
         </div>';
+        checkBottomHr();
     }
 
     function timelineBlock() {
@@ -265,6 +261,16 @@
                     </div>
                 </div>
               </div>';
+    }
+
+    function checkBottomHr() {
+        echo '<div class="container">';
+        if (get_sub_field('at_hide_bottom_divider') !== "yes") {            
+            echo '<hr>';
+        } else {
+            echo '<div class="no-hr"></div>';
+        }
+        echo '</div>';
     }
 
     function callComponents() {
